@@ -3,13 +3,14 @@ public abstract class BasisRezeptEssen extends BasisRezept {
     private boolean vegetarisch;
     private boolean vegan;
 
-    public BasisRezeptEssen(String name, Zutat[]zutaten, boolean vegetarisch, boolean vegan){
+    public BasisRezeptEssen(String name, Zutat[]zutaten, boolean vegetarisch, boolean vegan, String typ){
 
-        super(name, zutaten);
+        super(name, zutaten,typ);
         this.vegetarisch = vegetarisch;
         this.vegan = vegan;
 
     }
+
 
     public boolean isVegetarisch() {
         return vegetarisch;

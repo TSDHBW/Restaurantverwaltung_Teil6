@@ -2,12 +2,18 @@ public abstract class BasisRezept {
 
     private String name;
     private Zutat[] zutaten;
+    private String typ;
 
-    public BasisRezept(String name, Zutat[]zutaten){
+    public BasisRezept(String name, Zutat[]zutaten, String typ){
 
         this.name = name;
         this.zutaten = zutaten;
+        this.typ = typ;
 
+    }
+
+    public String getTyp() {
+        return typ;
     }
 
     public void zubereiten (int anzahlPortionen){

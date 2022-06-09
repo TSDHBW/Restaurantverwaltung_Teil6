@@ -6,65 +6,57 @@
  */
 public class Rezeptverwaltung {
 
-    private PastaGericht[] pastaRezepte;
-    private FleischGericht[] fleischRezepte;
-    private Cocktail[] cocktailRezepte;
-    private Limonade[] limonadeRezepte;
+    private BasisRezept[] rezepte;
 
     public Rezeptverwaltung (){
 
-        pastaRezepte = new PastaGericht[1000];
-        fleischRezepte = new FleischGericht[1000];
-        cocktailRezepte = new Cocktail[1000];
-        limonadeRezepte = new Limonade[1000];
+        rezepte = new BasisRezept[1000];
 
     }
 
+    public void nehmeRezeptAuf (BasisRezept rezept){
 
-    public int ermittleAnzahlRezepte (String art){
+        // zu implementieren
 
+    }
+
+    public void zeigeAlleRezepteAn () {
+
+        // zu implementieren
+
+    }
+
+    public void loescheRezept (String rezeptname, String rezeptart){
+
+        // zu implementieren
+
+    }
+
+    public void zeigeRezeptAn (String rezeptname, String rezeptart){
+
+        // zu implementieren
+
+    }
+
+    public int ermittleAnzahlRezepte (String rezeptart){
+
+        // zu implementieren
         return 0;
 
     }
 
-    public void zeigeRezetAn (String art, String name){
+    public int ermittleAnzahlRezepte (){
+
+        // zu implementieren
+        return 0;
 
     }
 
-    public void sucheRezeptNachZutat(Zutat zutat){
-
+    public BasisRezept[] getRezepte() {
+        return rezepte;
     }
 
-    public PastaGericht[] getPastaRezepte() {
-        return pastaRezepte;
+    public void setRezepte(BasisRezept[] rezepte) {
+        this.rezepte = rezepte;
     }
-
-    public void setPastaRezepte(PastaGericht[] pastaRezepte) {
-        this.pastaRezepte = pastaRezepte;
-    }
-
-    public FleischGericht[] getFleischRezepte() {
-        return fleischRezepte;
-    }
-
-    public void setFleischRezepte(FleischGericht[] fleischRezepte) {
-        this.fleischRezepte = fleischRezepte;
-    }
-
-    public Cocktail[] getCocktailRezepte() {
-        return cocktailRezepte;
-    }
-
-    public void setCocktailRezepte(Cocktail[] cocktailRezepte) {
-        this.cocktailRezepte = cocktailRezepte;
-    }
-
-    public Limonade[] getLimonadeRezepte() {
-        return limonadeRezepte;
-    }
-
-    public void setLimonadeRezepte(Limonade[] limonadeRezepte) {
-        this.limonadeRezepte = limonadeRezepte;
-    }
-
 }
