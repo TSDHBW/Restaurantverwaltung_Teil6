@@ -52,6 +52,12 @@ public class Rezeptverwaltung {
 
     }
 
+    public BasisRezept getRezept(String rezeptname, String rezeptart){
+
+        // zu implmeneiteren
+        return null;
+    }
+
     public BasisRezept[] getRezepte() {
         return rezepte;
     }
