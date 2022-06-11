@@ -16,13 +16,33 @@ public class Rezeptverwaltung {
 
     public void nehmeRezeptAuf (BasisRezept rezept){
 
+        boolean aktualisiert = false;
         for (int i = 0; i < rezepte.length; i++){
 
-            if (rezepte[i] == null){
+            if (rezepte[i] != null){
 
-                rezepte[i] = rezept;
-                break;
+                if (rezepte[i].getName().equals(rezept.getName()) && rezepte[i].getTyp().equals(rezept.getTyp())){
 
+                    // Aktualisieren von Rezept
+                    rezepte[i] = rezept;
+                    aktualisiert = true;
+                    break;
+
+                }
+            }
+        }
+
+        if (aktualisiert == false){
+
+            for (int i = 0; i < rezepte.length; i++){
+
+                if (rezepte[i] == null){
+
+                    // Hinzufügen von Rezept
+                    rezepte[i] = rezept;
+                    break;
+
+                }
             }
         }
     }
@@ -53,27 +73,67 @@ public class Rezeptverwaltung {
                 }
             }
         }
-
     }
 
     public void zeigeRezeptAn (String rezeptname, String rezeptart){
 
-        // zu implementieren
+        for (int i = 0; i < rezepte.length; i++){
 
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+
+                    System.out.println("Anzeige von Rezept:");
+                    System.out.println("Name: " + rezepte[i].getName());
+                    System.out.println("Rezeptart: " + rezepte[i].getTyp());
+                    System.out.print("Zutaten: ");
+                    for (int j = 0; j < rezepte[i].getZutaten().length; j++){
+
+                        System.out.print(rezepte[i].getZutaten()[j].getName() + " ");
+
+                    }
+                }
+            }
+        }
     }
 
     public int ermittleAnzahlRezepte (String rezeptart){
 
-        // zu implementieren
-        return 0;
+        int anzahl = 0;
 
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getTyp().equals(rezeptart)){
+
+                    anzahl++;
+
+                }
+            }
+        }
+        return anzahl;
     }
 
     public int ermittleAnzahlRezepte (){
 
-        // zu implementieren
-        return 0;
+        int anzahl = 0;
 
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                anzahl++;
+
+            }
+        }
+        return anzahl;
+    }
+
+    public BasisRezept getRezept(String rezeptname, String rezeptart){
+
+        // zu implmeneiteren
+        return null;
     }
 
     public BasisRezept[] getRezepte() {
