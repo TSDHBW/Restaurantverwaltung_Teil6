@@ -38,7 +38,12 @@ public class MVCController {
         Zutat[] zutatenCaipirinha = {minze, limette, zucker, wasser, eis};
         Cocktail caipirinha = new Cocktail("Caipirinha", zutatenCaipirinha, false, false, 0, true);
 
-
+        model.rezeptverwaltung.nehmeRezeptAuf(orangenlimo);
+        model.rezeptverwaltung.nehmeRezeptAuf(zitronenlimo);
+        model.rezeptverwaltung.nehmeRezeptAuf(caipirinha);
+        model.rezeptverwaltung.zeigeAlleRezepteAn();
+        model.rezeptverwaltung.loescheRezept("Zitronenlimo", "Limonade");
+        model.rezeptverwaltung.zeigeAlleRezepteAn();
 
 
     }
