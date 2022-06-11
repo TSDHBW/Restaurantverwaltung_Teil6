@@ -16,43 +16,18 @@ public class Rezeptverwaltung {
 
     public void nehmeRezeptAuf (BasisRezept rezept){
 
-        for (int i = 0; i < rezepte.length; i++){
-
-            if (rezepte[i] == null){
-
-                rezepte[i] = rezept;
-                break;
-
-            }
-        }
+        // zu implementieren
     }
 
     public void zeigeAlleRezepteAn () {
 
-        for (int i = 0; i < rezepte.length; i++){
-
-            if (rezepte[i] != null){
-
-                System.out.println(rezepte[i].getName());
-
-            }
-        }
+        // zu implementieren
 
     }
 
     public void loescheRezept (String rezeptname, String rezeptart){
 
-        for (int i = 0; i < rezepte.length; i++){
-
-            if (rezepte[i] != null){
-
-                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
-
-                    rezepte[i] = null;
-
-                }
-            }
-        }
+        // zu implementieren
 
     }
 
