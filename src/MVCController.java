@@ -38,7 +38,7 @@ public class MVCController {
         Zutat[] zutatenCaipirinha = {minze, limette, zucker, wasser, eis};
         Cocktail caipirinha = new Cocktail("Caipirinha", zutatenCaipirinha, false, false, 0, true);
 
-        //Code zum Testen
+
 
 
     }
