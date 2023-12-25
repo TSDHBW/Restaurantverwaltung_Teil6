@@ -23,7 +23,7 @@ public class Rezeptverwaltung {
 
                 if (rezepte[i].getName().equals(rezept.getName()) && rezepte[i].getTyp().equals(rezept.getTyp())){
 
-                    // Aktualisieren von Rezept
+                    System.out.println("Rezept aktualisiert");
                     rezepte[i] = rezept;
                     aktualisiert = true;
                     break;
@@ -40,10 +40,15 @@ public class Rezeptverwaltung {
 
                     // Hinzufügen von Rezept
                     rezepte[i] = rezept;
+                    System.out.println("Rezept aufgenommen");
                     break;
 
                 }
             }
+        } else {
+
+            System.out.println("Rezept nicht aufgenommen, Rezeptverwaltung ist voll");
+
         }
     }
 
@@ -60,19 +65,22 @@ public class Rezeptverwaltung {
 
     }
 
-    public void loescheRezept (String rezeptname, String rezeptart){
+    public void loescheRezept (String rezeptname, String rezepttyp){
 
         for (int i = 0; i < rezepte.length; i++){
 
             if (rezepte[i] != null){
 
-                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezepttyp)){
 
                     rezepte[i] = null;
+                    System.out.println("Rezept gelöscht");
+                    break;
 
                 }
             }
         }
+        System.out.println("Rezept nicht gefunden");
     }
 
     public void zeigeRezeptAn (String rezeptname, String rezeptart){
@@ -97,7 +105,7 @@ public class Rezeptverwaltung {
         }
     }
 
-    public int ermittleAnzahlRezepte (String rezeptart){
+    public int ermittleAnzahlRezepte (String rezepttyp){
 
         int anzahl = 0;
 
@@ -105,7 +113,7 @@ public class Rezeptverwaltung {
 
             if (rezepte[i] != null){
 
-                if (rezepte[i].getTyp().equals(rezeptart)){
+                if (rezepte[i].getTyp().equals(rezepttyp)){
 
                     anzahl++;
 
