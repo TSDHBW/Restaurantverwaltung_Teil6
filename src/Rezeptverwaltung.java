@@ -83,13 +83,13 @@ public class Rezeptverwaltung {
         System.out.println("Rezept nicht gefunden");
     }
 
-    public void zeigeRezeptAn (String rezeptname, String rezeptart){
+    public void zeigeRezeptAn (String rezeptname, String rezepttyp){
 
         for (int i = 0; i < rezepte.length; i++){
 
             if (rezepte[i] != null){
 
-                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezepttyp)){
 
                     System.out.println("Anzeige von Rezept:");
                     System.out.println("Name: " + rezepte[i].getName());
@@ -138,7 +138,7 @@ public class Rezeptverwaltung {
         return anzahl;
     }
 
-    public BasisRezept getRezept(String rezeptname, String rezeptart){
+    public BasisRezept getRezept(String rezeptname, String rezepttyp){
 
         // zu implmeneiteren
         return null;
