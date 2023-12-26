@@ -1,4 +1,4 @@
-public class Zutat {
+public class Zutat implements Verkaufspreis{
 
     private String name;
     private double preis;
@@ -24,6 +24,16 @@ public class Zutat {
 
     public void setPreis(double preis) {
         this.preis = preis;
+    }
+
+    @Override
+    public double getAufschlag() {
+        return 0.75;
+    }
+
+    @Override
+    public double ermittleVerkaufspreis() {
+        return preis + getAufschlag();
     }
 
 }

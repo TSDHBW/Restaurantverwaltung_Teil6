@@ -29,6 +29,18 @@ public class MVCController {
         Zutat eis = new Zutat("Eis", 0.50);
         Zutat limette = new Zutat("Limette", 2.00);
 
+        model.zutatenverwaltung.nehmeZutatAuf(zitrone);
+        model.zutatenverwaltung.nehmeZutatAuf(orange);
+        model.zutatenverwaltung.nehmeZutatAuf(minze);
+        model.zutatenverwaltung.nehmeZutatAuf(zucker);
+        model.zutatenverwaltung.nehmeZutatAuf(wasser);
+        model.zutatenverwaltung.nehmeZutatAuf(eis);
+        model.zutatenverwaltung.nehmeZutatAuf(limette);
+
+        orange.setPreis(2.50);
+
+        model.zutatenverwaltung.nehmeZutatAuf(orange);
+
         Zutat[] zutatenOrangenlimo = {orange, minze, wasser, eis};
         Limonade orangenlimo = new Limonade("Orangenlimo", zutatenOrangenlimo, false,true, "Orange", true);
 
@@ -57,6 +69,47 @@ public class MVCController {
         model.rezeptverwaltung.zeigeRezeptAn("Orangenlimo", "Limonade");
 
     }
+
+    public double ermittleGesamtpreis (Verkaufspreis[]speisen){
+
+        System.out.println("----");
+        System.out.println("Gesamtpreis:");
+        double gesamtpreis = 0.00;
+        for (int i = 0; i < speisen.length; i++){
+            gesamtpreis = gesamtpreis + speisen[i].ermittleVerkaufspreis();
+        }
+        return gesamtpreis;
+
+    }
+
+    public double ermittleGesamtpreis(Verkaufspreis[]speisen, boolean kochbox) {
+
+        double verkaufspreis = 0.0;
+        if (kochbox == false) {
+
+            for (int i = 0; i < speisen.length; i++) {
+                if (speisen[i] != null) {
+                    verkaufspreis = verkaufspreis + speisen[i].ermittleVerkaufspreis();
+                }
+            }
+
+        } else {
+
+            for (int i = 0; i < speisen.length; i++){
+                if (speisen[i] != null){
+                    BasisRezept rezept = (BasisRezept) speisen[i];
+                    for (int j = 0 ; j < rezept.getZutaten().length; j++){
+                        if (rezept.getZutaten()[j] != null){
+                            verkaufspreis = verkaufspreis + rezept.getZutaten()[j].ermittleVerkaufspreis();
+                        }
+                    }
+                    verkaufspreis = verkaufspreis + speisen[i].BASISPREIS;
+                }
+            }
+        }
+        return verkaufspreis;
+    }
+
     /*
     public void legeRezeptan() {
 
