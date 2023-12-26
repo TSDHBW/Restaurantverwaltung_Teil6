@@ -123,21 +123,6 @@ public class Rezeptverwaltung {
         return anzahl;
     }
 
-    public int ermittleAnzahlRezepte (){
-
-        int anzahl = 0;
-
-        for (int i = 0; i < rezepte.length; i++){
-
-            if (rezepte[i] != null){
-
-                anzahl++;
-
-            }
-        }
-        return anzahl;
-    }
-
     public BasisRezept getRezept(String rezeptname, String rezepttyp){
 
         // zu implmeneiteren
