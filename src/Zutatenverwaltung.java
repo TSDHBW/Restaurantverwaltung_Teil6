@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Zutatenverwaltung {
@@ -40,23 +41,50 @@ public class Zutatenverwaltung {
         }
     }
 
-    public Zutat sucheZutat (){
-
+    public Zutat sucheZutat(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Bitte Zutatenname eingeben");
-        String eingabe = scanner.nextLine();
+        boolean zutatGefunden = false;
+        try{
+            String name = scanner.nextLine();
+            for (int i = 0; i < zutaten.length; i++){
+                if (zutaten[i] != null){
+                    if (zutaten[i].getName().equals(name)){
+                        zutatGefunden = true;
+                        return zutaten[i];
+                    }
+                }
+            }
+        } catch (InputMismatchException e){
+            System.out.println(e.getMessage());
+            System.out.println("Ungeültige Eingabe");
+        } finally {
+            //scanner.close();
+        }
+        if (zutatGefunden == false){
+            System.out.println("Zutat nicht gefunden");
+        }
+        return null;
+    }
 
-        for (int i = 0; i< zutaten.length; i++){
+    public void aendereZutatenPreis(){
 
-            if (zutaten[i] != null && zutaten[i].getName().equals(eingabe)){
-                return zutaten[i];
-            } else {
-                System.out.println("Zutat ist nicht vorhanden");
-                return null;
+        Zutat zutat = sucheZutat();
+        if (zutat != null) {
+            Scanner scanner = new Scanner(System.in);
+            try {
+                System.out.println("Neuen Preis eingegeben");
+                double preis = scanner.nextDouble();
+                zutat.setPreis(preis);
+                nehmeZutatAuf(zutat);
+            }   catch (InputMismatchException e){
+                System.out.println(e.getMessage());
+                System.out.println("Kein gültiger Preis.");
+            }finally {
+                scanner.close();
+                System.out.println("Preisänderung abgeschlossen");
             }
         }
 
-        return null;
     }
 
 }
